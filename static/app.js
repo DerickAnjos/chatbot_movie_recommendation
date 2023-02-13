@@ -46,8 +46,8 @@ class Chatbox {
         let msg1 = { name: "User", message: text1 }
         this.messages.push(msg1);
 
-        fetch($SCRIPT_ROOT + '/predict', {
-        //fetch('https://chatbot-zuf0.onrender.com/predict', {
+        //fetch($SCRIPT_ROOT + '/predict', {
+        fetch('https://hal-9000.onrender.com', {
             method: 'POST',
             body: JSON.stringify({ message: text1 }),
             mode: 'cors',
