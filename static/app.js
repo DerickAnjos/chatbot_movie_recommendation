@@ -47,7 +47,7 @@ class Chatbox {
         this.messages.push(msg1);
 
         //fetch($SCRIPT_ROOT + '/predict', {
-        fetch('https://hal-9000.onrender.com', {
+        fetch('https://hal-9000.onrender.com/predict', {
             method: 'POST',
             body: JSON.stringify({ message: text1 }),
             mode: 'cors',
