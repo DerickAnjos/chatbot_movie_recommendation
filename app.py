@@ -16,9 +16,9 @@ def predict():
     # CHECK IF TEXT IS VALID
 
     if text[0:6].lower() == 'movie:':
-        message = {'answer': movie_rec(text[6:])}
-        return jsonify(message)
-
+        #message = {'answer': movie_rec(text[6:])}
+        #return jsonify(message)
+        return
     else:
         response = get_response(text)
         message = {'answer': response}
