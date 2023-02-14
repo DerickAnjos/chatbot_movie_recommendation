@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 from chatbot import get_response
-from movie_rec_routine import movie_rec
+#from movie_rec_routine import movie_rec
 from flask_cors import CORS
 
 app = Flask(__name__)
@@ -17,8 +17,9 @@ def predict():
 
     if text[0:6].lower() == 'movie:':
         #message = {'answer': movie_rec(text[6:])}
-        #return jsonify(message)
-        return 
+        message = {'answer': 'movie_rec(text[6:])'}
+        return jsonify(message)
+
     else:
         response = get_response(text)
         message = {'answer': response}
