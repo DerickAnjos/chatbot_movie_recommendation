@@ -28,7 +28,7 @@ feature_vectors = vectorizer.fit_transform(combined_features)
 list_of_all_titles = movies_data['title'].tolist()
 
 # Cosine similarity ----------------------------------------------------------------------------------------------------
-# Getting the similarity scores
+# Getting the similarity score
 similarity = cosine_similarity(feature_vectors).round(3)
 
 with open(r'movie_titles', 'w', encoding="utf-8") as title:
