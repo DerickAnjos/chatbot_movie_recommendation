@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 from chatbot import get_response
-#from movie_rec_routine import movie_rec
+from movie_rec_routine import movie_rec
 from flask_cors import CORS
 
 app = Flask(__name__)
