@@ -25,14 +25,26 @@ vectorizer = TfidfVectorizer()
 feature_vectors = vectorizer.fit_transform(combined_features)
 
 # Creating a list with all the movies names given in the dataset
-list_of_all_titles = movies_data['title'].tolist()
+list_of_all_titles = movies_data['title']
 
 # Cosine similarity ----------------------------------------------------------------------------------------------------
 # Getting the similarity scores
-similarity = cosine_similarity(feature_vectors)
+similarity = cosine_similarity(feature_vectors).round(3)
+#similarity = pd.DataFrame(similarity)
+
 
 with open(r'movie_titles', 'w', encoding="utf-8") as title:
     title.write("\n".join(list_of_all_titles))
+
+#print(similarity.head())
+#list_of_all_titles.to_csv('list_of_all_titles.csv')
+#similarity.to_csv('similarity_teste.csv')
+
+
+# Loading data
+#movies_data = pd.read_csv('movies.csv')
+#list_of_all_titles = pd.read_csv('list_of_all_titles.csv')
+#similarity = pd.read_csv('similarity.csv')
 
 def movie_rec(movie_name):
     # Getting the movie name from the user
