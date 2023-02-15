@@ -29,7 +29,7 @@ list_of_all_titles = movies_data['title'].tolist()
 
 # Cosine similarity ----------------------------------------------------------------------------------------------------
 # Getting the similarity score
-similarity = cosine_similarity(feature_vectors).round(3)
+similarity = cosine_similarity(feature_vectors).round(2)
 
 with open(r'movie_titles', 'w', encoding="utf-8") as title:
     title.write("\n".join(list_of_all_titles))
