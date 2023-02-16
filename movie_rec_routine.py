@@ -6,8 +6,6 @@ import difflib
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
-
-
 movies_data = pd.read_csv('movies.csv')
 list_of_all_titles = pd.read_csv('list_of_all_titles.csv')
 similarity = pd.read_csv('similarity.csv')
@@ -16,39 +14,7 @@ def movie_rec(movie_name):
     # Getting the movie name from the user
     #movie_name = input(' Enter your favorite movie: ')
 
-    # Finding the close match for the movie name given by the user
-    find_close_match = difflib.get_close_matches(movie_name, list_of_all_titles)
-    close_match = find_close_match[0]
-
-    # Finding the index of the movie with title
-    index_of_the_movie = movies_data[movies_data.title == close_match]['index'].values[0]
-
-    # Getting a list of similar movie
-    similarity_score = list(enumerate(similarity[index_of_the_movie]))
-
-    # Sorting the movies based on their similarity score
-    sorted_similar_movies = sorted(similarity_score, key = lambda x:x[1], reverse = True)
-
-    i = 1
-    movie_sugestion = 'Based on the movie "'
-    for movie in sorted_similar_movies:
-
-        index = movie[0]
-        title_from_index = movies_data[movies_data.index == index]['title'].values[0]
-        release_from_index = movies_data[movies_data.index == index]['release_date'].values[0]
-
-        if (i==1):
-            movie_sugestion = movie_sugestion + (title_from_index + '" (' +
-                                                 release_from_index[0:4] + '), directed by ' +
-                                                 movies_data[movies_data.index == index]['director'].values[0] +
-                                                 ", I recommend you see: <br>")
-            i+=1
-            continue
-
-        if (i<7):
-            movie_sugestion = movie_sugestion + ("<br>" + str(i-1) + '. ' + title_from_index + " (" +
-                                                 release_from_index[0:4] + ")")
-            i+=1
+    movie_sugestion = movie_name
 
     # Printing the name of similar movies based on the index
     return movie_sugestion
