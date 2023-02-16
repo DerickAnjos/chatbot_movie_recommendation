@@ -10,8 +10,24 @@ movies_data = pd.read_csv('movies.csv')
 list_of_all_titles = pd.read_csv('list_of_all_titles.csv')
 #similarity = pd.read_csv('similarity.csv')
 # Lendo um arquivo parquet
-pd.read_parquet('similarity', engine='pyarrow')
+a = pd.read_parquet('similarity', engine='pyarrow')
+#a.info()
+#a.memory_usage()
 
+
+
+
+
+
+#similarity_old = pd.read_parquet('similarity', engine='pyarrow', chunked  = 1000)
+# Verificando os shapes de um dataframe de 30 mil linhas e 10 cols
+#for chunk in similarity_old:
+#    print(chunk.shape)
+
+# Juntando os chunks em um novo dataframe
+#similarity = pd.DataFrame()
+#for chunk in pd.read_csv(path, chunksize=10000):
+#    new_df = new_df.append(chunk)
 
 
 
