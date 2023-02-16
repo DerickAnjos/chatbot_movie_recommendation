@@ -8,7 +8,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 movies_data = pd.read_csv('movies.csv')
 list_of_all_titles = pd.read_csv('list_of_all_titles.csv')
-similarity = pd.read_csv('similarity.csv')
+#similarity = pd.read_csv('similarity.csv')
 
 def movie_rec(movie_name):
     # Getting the movie name from the user
