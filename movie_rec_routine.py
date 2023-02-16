@@ -22,14 +22,14 @@ combined_features = movies_data['genres'] + ' ' + movies_data['keywords'] + ' ' 
 
 # Transforming the text data into feature vectors
 vectorizer = TfidfVectorizer()
-feature_vectors = vectorizer.fit_transform(combined_features)
+#feature_vectors = vectorizer.fit_transform(combined_features)
 
 # Creating a list with all the movies names given in the dataset
 list_of_all_titles = movies_data['title'].tolist()
 
 # Cosine similarity ----------------------------------------------------------------------------------------------------
 # Getting the similarity score
-similarity = cosine_similarity(feature_vectors).round(2)
+similarity = cosine_similarity(vectorizer.fit_transform(combined_features)).round(2)
 
 with open(r'movie_titles', 'w', encoding="utf-8") as title:
     title.write("\n".join(list_of_all_titles))
