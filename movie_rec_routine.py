@@ -32,7 +32,7 @@ def movie_rec(movie_name, similarity):
         index = movie[0]
         title_from_index = movies_data[movies_data.index == index]['title'].values[0]
         release_from_index = movies_data[movies_data.index == index]['release_date'].values[0]
-        print('6_funcao')
+
         if (i==1):
             movie_sugestion = movie_sugestion + (title_from_index + '" (' +
                                                  release_from_index[0:4] + '), directed by ' +

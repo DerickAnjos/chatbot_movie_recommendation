@@ -40,7 +40,10 @@
         "Who are you?",
         "What can you do?",
         "Which is your specialty?",
-        "Present yourself"
+        "Present yourself",
+        "What is your name?",
+        "What's your name?",
+        "Your name"
       ],
       "responses": [
         "My name is Hal 9000, and I can do a lot of things using my AI. I can recommend you movies based on a movie you like and by categories, and more, I can tell the best jokes in the world!<br> Let's talk?"
