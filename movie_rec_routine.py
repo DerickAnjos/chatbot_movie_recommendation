@@ -7,21 +7,21 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 movies_data = pd.read_csv('movies.csv')
-movies_data.info()
+#movies_data.info()
 #movies_data.columns = movies_data.columns.astype()
-movies_data.info()
+#movies_data.info()
 list_of_all_titles = movies_data['title'].tolist()
 
 #list_of_all_titles = pd.read_csv('list_of_all_titles.csv')
 #similarity = pd.read_csv('similarity.csv')
 # Lendo um arquivo parquet
-similarity = pd.read_parquet('similarity', engine='pyarrow')
+#similarity = pd.read_parquet('similarity', engine='pyarrow')
 #a.info()
 #a.memory_usage()
 
 
 
-similarity = np.array(similarity)
+#similarity = np.array(similarity)
 #print(type(similarity))
 
 
@@ -48,7 +48,7 @@ similarity = np.array(similarity)
 
 
 
-def movie_rec(movie_name):
+def movie_rec(movie_name, similarity):
     # Getting the movie name from the user
     #movie_name = input(' Enter your favorite movie: ')
     print(movie_name)
