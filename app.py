@@ -9,7 +9,6 @@ app = Flask(__name__)
 CORS(app)
 similarity = pd.read_parquet('similarity', engine='pyarrow')
 similarity = np.array(similarity)
-print('teste_teste')
 
 @app.get('/')
 def index_get():
@@ -22,7 +21,6 @@ def predict():
 
     if text[0:6].lower() == 'movie:':
         message = {'answer': movie_rec(text[6:], similarity)}
-        #message = {'answer': 'movie_rec(text[6:])'}
         return jsonify(message)
 
     else:

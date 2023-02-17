@@ -24,13 +24,9 @@ model = NeuralNet(input_size, hidden_size, output_size).to(device)
 model.load_state_dict(model_state)
 model.eval()
 
-bot_name = "Donnie"
-print("Let's chat! Type 'quit' to exit")
+bot_name = "HAL 9000"
 
 def get_response(msg):
-    #sentence = input("You: ")
-    #if sentence == 'quit':
-    #    break
 
     sentence = tokenize(msg)
     X = bag_of_words(sentence, all_words)

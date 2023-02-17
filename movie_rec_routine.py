@@ -10,6 +10,10 @@ def movie_rec(movie_name, similarity):
 
     # Finding the close match for the movie name given by the user
     find_close_match = difflib.get_close_matches(movie_name, list_of_all_titles)
+
+    if find_close_match == []:
+        return "I'm embarrassed, I don't know this movie yet, I'm sorry.<br><br> Try another movie, I'll be happy to help you this time!"
+
     close_match = find_close_match[0]
 
     # Finding the index of the movie with title
