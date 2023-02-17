@@ -7,13 +7,26 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 movies_data = pd.read_csv('movies.csv')
-list_of_all_titles = pd.read_csv('list_of_all_titles.csv')
+movies_data.info()
+#movies_data.columns = movies_data.columns.astype()
+movies_data.info()
+list_of_all_titles = movies_data['title'].tolist()
+
+#list_of_all_titles = pd.read_csv('list_of_all_titles.csv')
 #similarity = pd.read_csv('similarity.csv')
 # Lendo um arquivo parquet
 similarity = pd.read_parquet('similarity', engine='pyarrow')
 #a.info()
 #a.memory_usage()
 
+
+
+similarity = np.array(similarity)
+#print(type(similarity))
+
+
+
+#print(similarity[68])
 
 
 
@@ -38,14 +51,14 @@ similarity = pd.read_parquet('similarity', engine='pyarrow')
 def movie_rec(movie_name):
     # Getting the movie name from the user
     #movie_name = input(' Enter your favorite movie: ')
-
+    print(movie_name)
     # Finding the close match for the movie name given by the user
     find_close_match = difflib.get_close_matches(movie_name, list_of_all_titles)
     close_match = find_close_match[0]
 
     # Finding the index of the movie with title
     index_of_the_movie = movies_data[movies_data.title == close_match]['index'].values[0]
-
+    print(type(index_of_the_movie))
     # Getting a list of similar movie
     similarity_score = list(enumerate(similarity[index_of_the_movie]))
 
