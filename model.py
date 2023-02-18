@@ -1,4 +1,4 @@
-import torch
+# Installing and loading necessary packages -----------------------
 import torch.nn as nn
 
 class NeuralNet(nn.Module):

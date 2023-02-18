@@ -1,7 +1,7 @@
+# Installing and loading necessary packages -----------------------
 import random
 import json
 import torch
-
 from model import NeuralNet
 from nltk_utils import bag_of_words, tokenize
 
@@ -47,4 +47,3 @@ def get_response(msg):
     else:
         return "I didn't get it, unfortunately I'm not at the GPT-3 level yet :/ <br><br> " \
                "Could you write it in another way please?"
-
