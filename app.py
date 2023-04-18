@@ -1,3 +1,4 @@
+# Installing and loading necessary packages -----------------------
 from flask import Flask, render_template, request, jsonify
 from chatbot import get_response
 from movie_rec_routine import movie_rec
@@ -17,7 +18,7 @@ def index_get():
 @app.post('/predict')
 def predict():
     text = request.get_json().get('message')
-    # CHECK IF TEXT IS VALID
+    # routine to check the text is valid
 
     if text[0:6].lower() == 'movie:':
         message = {'answer': movie_rec(text[6:], similarity)}
@@ -30,4 +31,3 @@ def predict():
 
 if __name__ == "__main__":
     app.run()
-

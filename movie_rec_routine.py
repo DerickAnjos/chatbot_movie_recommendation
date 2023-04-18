@@ -1,4 +1,4 @@
-# Importing necessary packages
+# Installing and loading necessary packages -----------------------
 import pandas as pd
 import difflib
 

@@ -1,4 +1,4 @@
-# Importing necessary packages
+# Installing and loading necessary packages -----------------------
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
@@ -13,7 +13,7 @@ selected_features = ['genres', 'keywords', 'tagline', 'cast', 'director', 'title
 for feature in selected_features:
     movies_data[feature] = movies_data[feature].fillna('')
 
-# Joining all the selected features
+# Joining all the selected features for analysis
 combined_features = movies_data['genres'] + ' ' + movies_data['keywords'] + ' ' + movies_data['tagline'] + ' ' + \
                     movies_data['cast'] + ' ' + movies_data['director']
 
@@ -21,13 +21,10 @@ combined_features = movies_data['genres'] + ' ' + movies_data['keywords'] + ' ' 
 vectorizer = TfidfVectorizer()
 feature_vectors = vectorizer.fit_transform(combined_features)
 
-# Creating a list with all the movies names given in the dataset
-list_of_all_titles = movies_data['title'].tolist()
-
 # Cosine similarity ----------------------------------------------------------------------------------------------------
 # Getting the similarity scores
 similarity = pd.DataFrame(cosine_similarity(feature_vectors)).round(3)
 similarity.columns = similarity.columns.astype(str)
 
 # Saving files
-similarity.to_parquet('similarity', engine = 'pyarrow', compression='gzip')
+similarity.to_parquet('similarity', engine = 'pyarrow', compression = 'gzip')

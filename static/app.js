@@ -46,8 +46,8 @@ class Chatbox {
         let msg1 = { name: "User", message: text1 }
         this.messages.push(msg1);
 
-        //fetch($SCRIPT_ROOT + '/predict', {
-        fetch('https://hal-9000.onrender.com/predict', {
+        fetch($SCRIPT_ROOT + '/predict', {
+        //fetch('https://hal-9000.onrender.com/predict', {
             method: 'POST',
             body: JSON.stringify({ message: text1 }),
             mode: 'cors',
@@ -57,7 +57,7 @@ class Chatbox {
           })
           .then(r => r.json())
           .then(r => {
-            let msg2 = { name: "Sam", message: r.answer };
+            let msg2 = { name: "HAL 9000", message: r.answer };
             this.messages.push(msg2);
             this.updateChatText(chatbox)
             textField.value = ''
@@ -72,7 +72,7 @@ class Chatbox {
     updateChatText(chatbox) {
         var html = '';
         this.messages.slice().reverse().forEach(function(item, index) {
-            if (item.name === "Sam")
+            if (item.name === "HAL 9000")
             {
                 html += '<div class="messages__item messages__item--visitor">' + item.message + '</div>'
             }
